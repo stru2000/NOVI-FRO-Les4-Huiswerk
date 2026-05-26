@@ -45,20 +45,111 @@
 /* //////////2. Typography////////// */
 html, body {
     font-family: var(--text-font);
+    color: var(--color-text);
+    font-size: 16px;
 }
 
-h2 {
-    font-family: var(--heading-font);
+.nav-menu{
+    font-size: 1.2rem;
+    font-weight: 300;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+
+}
+
+h1{
+    font-size: 3.2rem;
+    font-weight: 500;
+}
+
+h3{
+    font-family: var(--text-font);
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+
+
 
 /* //////////3. Layout////////// */
 
 /* --- 3.1 Reusables --- */
+button{
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: none;
+    background-color: var(--color-pink);
+    padding: 2rem 4rem;
+    border-radius: 45px;
+    box-shadow: 0 8px 15px lightgrey;
+}
 
+header {
+    color: var(--color-floats);
+}
 
-/* --- 3.1 Other --- */
+/* --- 3.2 Other --- */
 
 /* //////////4. Areas////////// */
 
+/* --- 4.1 Header --- */
+
+.header-outer-container {
+    background-color: var(--color-blue);
+    display: flex;
+    flex-direction: column;
+    font-family: var(--text-font);
+}
+header > ul{
+    list-style: none;
+}
+
+.nav-menu{
+    border:2px dashed green;
+    display:flex;
+    justify-content: flex-end;
+    padding: 2rem 4rem;
+    gap: 4rem;
+}
+
+.header-inner-container{
+    border:2px dashed red;
+    padding-top: 2rem;
+    margin: 0 2rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.header-wrapper{
+    border:2px dashed yellow;
+    max-width: 55rem;
+    padding-bottom: 14rem;
+    gap: 1.9rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.header-img{
+    border:2px dashed green;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+
+}
 
 /* //////////5. Media Queries////////// */
