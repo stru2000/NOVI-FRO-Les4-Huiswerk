@@ -19,8 +19,8 @@
 /* //////////1. Global styles////////// */
 
 /* --- 1.1 Imports --- */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet');
 
 /* --- 1.2 Variables --- */
 :root {
@@ -70,12 +70,43 @@ h3{
     font-weight: 300;
 }
 
+.intro-text {
+    font-family: var(--heading-font);
+    color: var(--color-purple);
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 1.4;
+}
 
+.contact-text {
+    font-family: var(--text-font);
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-top: 2rem;
+}
 
 
 /* //////////3. Layout////////// */
 
 /* --- 3.1 Reusables --- */
+
+.outer-container {
+    border: 2px dashed brown;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--text-font);
+}
+
+.wrapper-container{
+    border:2px dashed yellow;
+    max-width: 55rem;
+    padding-bottom: 14rem;
+    gap: 1.9rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 button{
     text-transform: uppercase;
     letter-spacing: 0.15rem;
@@ -88,9 +119,7 @@ button{
     box-shadow: 0 8px 15px lightgrey;
 }
 
-header {
-    color: var(--color-floats);
-}
+
 
 /* --- 3.2 Other --- */
 
@@ -98,12 +127,11 @@ header {
 
 /* --- 4.1 Header --- */
 
-.header-outer-container {
+header {
     background-color: var(--color-blue);
-    display: flex;
-    flex-direction: column;
-    font-family: var(--text-font);
+    color: var(--color-floats);
 }
+
 header > ul{
     list-style: none;
 }
@@ -116,7 +144,7 @@ header > ul{
     gap: 4rem;
 }
 
-.header-inner-container{
+.inner-container{
     border:2px dashed red;
     padding-top: 2rem;
     margin: 0 2rem;
@@ -126,18 +154,6 @@ header > ul{
     text-align: center;
     position: relative;
 }
-
-.header-wrapper{
-    border:2px dashed yellow;
-    max-width: 55rem;
-    padding-bottom: 14rem;
-    gap: 1.9rem;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
 
 .header-img{
     border:2px dashed green;
@@ -149,7 +165,21 @@ header > ul{
     left: 50%;
     transform: translateX(-50%);
     overflow: hidden;
-
 }
+
+
+/* --- 4.2 Introduction --- */
+
+.introduction-container {
+    background-color: var(--color-background-projects);
+}
+
+.introduction-wrapper {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    gap: 2.5rem;
+}
+
+
 
 /* //////////5. Media Queries////////// */
