@@ -11,7 +11,9 @@
     4. Areas
         4.1 Header
         4.2 Introduction
-        etc.
+        4.3 Producten
+        4.4 Services
+
     5. Media Queries
 ////////////////////////*/
 
@@ -20,7 +22,7 @@
 
 /* --- 1.1 Imports --- */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* --- 1.2 Variables --- */
 :root {
@@ -44,7 +46,7 @@
 
 /* //////////2. Typography////////// */
 html, body {
-    font-family: var(--text-font);
+    font-family: var(--heading-font);
     color: var(--color-text);
     font-size: 16px;
 }
@@ -70,6 +72,10 @@ h3{
     font-weight: 300;
 }
 
+button{
+    color: inherit;
+}
+
 .intro-text {
     font-family: var(--heading-font);
     color: var(--color-purple);
@@ -85,6 +91,12 @@ h3{
     margin-top: 2rem;
 }
 
+.products-container a {
+    text-transform: uppercase;
+    color: var(--color-blue);
+    text-decoration: none;
+    font-weight: bold;
+}
 
 /* //////////3. Layout////////// */
 
@@ -94,7 +106,17 @@ h3{
     border: 2px dashed brown;
     display: flex;
     flex-direction: column;
-    font-family: var(--text-font);
+}
+
+.inner-container{
+    border:2px dashed red;
+    padding-top: 2rem;
+    margin: 0 2rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
 }
 
 .wrapper-container{
@@ -115,8 +137,8 @@ button{
     border: none;
     background-color: var(--color-pink);
     padding: 2rem 4rem;
-    border-radius: 45px;
-    box-shadow: 0 8px 15px lightgrey;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -143,18 +165,6 @@ header > ul{
     padding: 2rem 4rem;
     gap: 4rem;
 }
-
-.inner-container{
-    border:2px dashed red;
-    padding-top: 2rem;
-    margin: 0 2rem;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
-}
-
 .header-img{
     border:2px dashed green;
     display: flex;
@@ -170,15 +180,53 @@ header > ul{
 
 /* --- 4.2 Introduction --- */
 
-.introduction-container {
-    background-color: var(--color-background-projects);
-}
+/*.introduction-container {*/
+/*    background-color: var(--color-background-projects);*/
+/*}*/
 
 .introduction-wrapper {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    display: flex;
+    padding: 6rem 0;
     gap: 2.5rem;
 }
+
+/* --- 4.3 Producten --- */
+.products-container {
+    background-color: var(--color-background-projects);
+}
+.products-wrapper {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10%;
+}
+
+.products-wrapper:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.products-container article{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 3rem;
+    max-width: 410px;
+    border: 3px solid var(--color-blue);
+    flex-shrink: 0;
+}
+
+.image-wrapper img{
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.image-wrapper {
+    flex-basis: 800px;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+/* --- 4.4 Services --- */
 
 
 
