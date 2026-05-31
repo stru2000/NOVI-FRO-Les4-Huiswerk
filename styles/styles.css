@@ -11,9 +11,9 @@
     4. Areas
         4.1 Header
         4.2 Introduction
-        4.3 Producten
+        4.3 Projects
         4.4 Services
-
+        4.5 Contact form
     5. Media Queries
 ////////////////////////*/
 
@@ -46,7 +46,7 @@
 
 /* //////////2. Typography////////// */
 html, body {
-    font-family: var(--heading-font);
+    font-family: var(--text-font);
     color: var(--color-text);
     font-size: 16px;
 }
@@ -58,7 +58,6 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--heading-font);
-
 }
 
 h1{
@@ -84,20 +83,39 @@ button{
     line-height: 1.4;
 }
 
-.contact-text {
-    font-family: var(--text-font);
+.contact-text{
     font-size: 1.1rem;
-    color: var(--color-text);
     margin-top: 2rem;
 }
 
-.products-container a {
+.introduction-wrapper a{
+    text-decoration: none;
+}
+
+.projects-outer p {
+    font-weight: 500;
+}
+
+.projects-outer a {
     text-transform: uppercase;
     color: var(--color-blue);
     text-decoration: none;
     font-weight: bold;
 }
 
+.services-wrapper > article > h2 {
+    color: var(--color-blue);
+}
+
+.services-wrapper > article p {
+    font-weight: 100;
+}
+
+form input::placeholder,
+form textarea::placeholder{
+    font-size: 1rem;
+    font-family: var(--text-font);
+}
 /* //////////3. Layout////////// */
 
 /* --- 3.1 Reusables --- */
@@ -110,23 +128,23 @@ button{
 
 .inner-container{
     border:2px dashed red;
-    padding-top: 2rem;
+    padding: 2rem 0;
     margin: 0 2rem;
     display:flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     position: relative;
 }
 
 .wrapper-container{
     border:2px dashed yellow;
     max-width: 55rem;
-    padding-bottom: 14rem;
+    padding-bottom: 8rem;
     gap: 1.9rem;
     display:flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 button{
@@ -150,7 +168,7 @@ button{
 /* --- 4.1 Header --- */
 
 header {
-    background-color: var(--color-blue);
+    background: linear-gradient(90deg,var(--color-blue) 0%, var(--color-purple) 100%);
     color: var(--color-floats);
 }
 
@@ -165,24 +183,32 @@ header > ul{
     padding: 2rem 4rem;
     gap: 4rem;
 }
+
 .header-img{
     border:2px dashed green;
     display: flex;
     justify-content: center;
     position: absolute;
     width: 100%;
-    bottom: -2rem;
+    bottom: -3.60rem;
     left: 50%;
     transform: translateX(-50%);
-    overflow: hidden;
+    z-index: 1;
 }
 
 
 /* --- 4.2 Introduction --- */
 
-/*.introduction-container {*/
-/*    background-color: var(--color-background-projects);*/
-/*}*/
+.introduction-outer {
+    background-color: var(--color-floats);
+}
+
+.intro-triangle {
+    width: 100%;
+    height: 6rem;
+    background: linear-gradient(90deg, var(--color-blue) 0%, var(--color-purple) 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
 
 .introduction-wrapper {
     display: flex;
@@ -190,28 +216,63 @@ header > ul{
     gap: 2.5rem;
 }
 
-/* --- 4.3 Producten --- */
-.products-container {
+.introduction-inner::before {
+    content: "hello";
+    position: absolute;
+    font-size: 30rem;
+    color: var(--color-floats);
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.1;
+}
+
+.introduction-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* --- 4.3 Projects --- */
+
+.projects-outer {
     background-color: var(--color-background-projects);
 }
-.products-wrapper {
+
+.projects-inner {
     flex-direction: row;
     justify-content: flex-end;
     gap: 10%;
 }
 
-.products-wrapper:nth-child(even) {
+.projects-inner::before {
+    content: "work";
+    position: absolute;
+    font-size: 30rem;
+    color: var(--color-floats);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    z-index: 0;
+    opacity: 0.2;
+}
+
+.projects-outer article,
+.projects-outer .image-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.projects-inner:nth-child(even) {
     flex-direction: row-reverse;
 }
 
-.products-container article{
+.projects-outer article{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    text-align: left;
     gap: 3rem;
     max-width: 410px;
-    border: 3px solid var(--color-blue);
+    border: 2px dashed deeppink;
     flex-shrink: 0;
 }
 
@@ -226,8 +287,106 @@ header > ul{
     flex-shrink: 1;
 }
 
+
 /* --- 4.4 Services --- */
 
+.services-outer{
+    background-color: var(--color-floats);
+}
 
+.services-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+    max-width: 85rem;
+    padding:4rem 0;
+    margin: 0 auto;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.services-wrapper > article{
+    border: 1px solid var(--color-blue);
+    flex-basis: 395px;
+    max-width: 410px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+}
+
+.img-services{
+    width: 5rem;
+}
+
+.services-inner::before {
+    content: "services";
+    position: absolute;
+    font-size: 30rem;
+    color: var(--color-floats);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    z-index: 0;
+    opacity: 0.2;
+}
+
+.services-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* --- 4.5 Contact form --- */
+
+.form-outer{
+    background-color: var(--color-blue);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-wrapper {
+    width: 100%;
+    align-items: stretch;
+    text-align: left;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0;
+    gap: 0;
+}
+
+form input,
+form textarea{
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+form textarea {
+    height: 15rem;
+}
+
+form > button{
+    background-color: var(--color-pink);
+    align-self: center;
+}
+
+
+/* --- 4.6 Footer --- */
+
+footer{
+    background-color: var(--text-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
 
 /* //////////5. Media Queries////////// */
