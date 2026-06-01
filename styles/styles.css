@@ -1,0 +1,519 @@
+/*////////////////////////
+    Table of Contents
+    1. Global Styles
+        1.1 Imports
+        1.2 Variables
+        1.3 Resets
+    2. Typography
+    3. Layout
+        3.1 Reusables
+        3.2 Other
+    4. Areas
+        4.1 Header
+        4.2 Introduction
+        4.3 Projects
+        4.4 Services
+        4.5 Contact form
+    5. Media Queries
+////////////////////////*/
+
+
+/* //////////1. Global styles////////// */
+
+/* --- 1.1 Imports --- */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* --- 1.2 Variables --- */
+:root {
+    --text-font: "Roboto", sans-serif;
+    --heading-font: "Merriweather", serif;
+    --color-purple: #5722CD;
+    --color-blue: #4845E4;
+    --color-pink: #ED4385;
+    --color-text: #0C0C0C;
+    --color-white: #FFFFFF;
+    --color-floats:#F2F0FF;
+    --color-background-projects: #F3F6F9;
+    --color-service-tiles: #7A7A7A;
+}
+
+/* --- 1.3 Resets --- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* //////////2. Typography////////// */
+html, body {
+    font-family: var(--text-font);
+    color: var(--color-text);
+    font-size: 16px;
+}
+
+.nav-menu{
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+}
+
+h1{
+    font-size: 3.2rem;
+    font-weight: 500;
+}
+
+h3{
+    font-family: var(--text-font);
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+button{
+    color: inherit;
+}
+
+.intro-text {
+    font-family: var(--heading-font);
+    color: var(--color-purple);
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.contact-text{
+    font-size: 1.1rem;
+    margin-top: 2rem;
+}
+
+.introduction-wrapper a{
+    text-decoration: none;
+}
+
+.projects-outer p {
+    font-weight: 500;
+}
+
+.projects-outer a {
+    text-transform: uppercase;
+    color: var(--color-purple);
+    text-decoration: none;
+    font-weight: bold;
+    /*Voor het streepje*/
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.services-wrapper > article > h2 {
+    color: var(--color-blue);
+}
+
+.services-wrapper > article p {
+    font-weight: 100;
+}
+
+form input::placeholder,
+form textarea::placeholder{
+    font-size: 1rem;
+    font-family: var(--text-font);
+}
+/* //////////3. Layout////////// */
+
+/* --- 3.1 Reusables --- */
+
+.outer-container {
+    border: 2px dashed brown;
+    display: flex;
+    flex-direction: column;
+}
+
+.inner-container{
+    border:2px dashed red;
+    padding: 2rem 0;
+    margin: 0 2rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.wrapper-container{
+    border:2px dashed yellow;
+    max-width: 55rem;
+    padding-bottom: 8rem;
+    gap: 1.9rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+button{
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: none;
+    background-color: var(--color-pink);
+    padding: 2rem 4rem;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.triangle-bottom {
+    width: 100%;
+    height: 6rem;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.triangle-top {
+    width: 100%;
+    height: 6rem;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+
+.introduction-inner,
+.projects-inner,
+.services-inner {
+    position: relative;
+    overflow: hidden; /* Voorkomt horizontale scrollbars als de tekst heel breed is */
+}
+
+/* Voor de watermerken */
+.introduction-inner::before,
+.projects-inner::before,
+.services-inner::before {
+    position: absolute;
+    font-family: var(--heading-font);
+    font-weight: 900;
+    color: var(--color-floats);
+    opacity: 0.1;
+    z-index: 0;
+    white-space: nowrap;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -4rem;
+
+}
+
+/* --- 3.2 Other --- */
+
+/* //////////4. Areas////////// */
+
+/* --- 4.1 Header --- */
+
+header {
+    color: var(--color-floats);
+    background: linear-gradient(90deg,var(--color-blue) 0%, var(--color-purple) 100%);
+    /* Voor de achtergrondfiguur */
+    display: flex;
+    position: relative;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:url('../assets/noise-texture.png') repeat;
+    z-index: 1;
+    opacity: 1;
+}
+
+.nav-menu{
+    list-style: none;
+    border:2px dashed green;
+    display:flex;
+    justify-content: flex-end;
+    padding: 2rem 4rem;
+    gap: 4rem;
+}
+
+.header-img{
+    border:2px dashed green;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    bottom: -3.60rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+
+/* --- 4.2 Introduction --- */
+
+.introduction-outer {
+    background-color: var(--color-white);
+}
+
+.header-triangle-bottom {
+    background: linear-gradient(90deg, var(--color-blue) 0%, var(--color-purple) 100%);
+    position: relative;
+}
+
+.header-triangle-bottom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:url('../assets/noise-texture.png') repeat;
+    z-index: 1;
+    opacity: 1;
+}
+
+.introduction-triangle-top {
+    background: var(--color-background-projects);
+}
+
+.introduction-wrapper {
+    display: flex;
+    padding: 6rem 0;
+    gap: 2.5rem;
+}
+
+.introduction-inner::before {
+    content: "hello";
+    font-size: 32rem;
+}
+
+.introduction-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* --- 4.3 Projects --- */
+
+
+.projects-outer {
+    background-color: var(--color-background-projects);
+}
+
+.projects-inner {
+    flex-direction: column;
+    row-gap: 5rem;
+}
+
+.projects-wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 85rem;
+    padding-bottom: 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.projects-inner::before {
+    content: "work";
+    font-size: 32rem;
+}
+
+.projects-outer article,
+.projects-outer .projects-image-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.projects-wrapper:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.projects-outer article{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+    max-width: 410px;
+    border: 2px dashed deeppink;
+    flex-shrink: 0;
+}
+
+.projects-image-wrapper img{
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.projects-image-wrapper {
+    flex-basis: 800px;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+.projects-triangle-bottom{
+    background: var(--color-background-projects);
+}
+
+.projects-outer a::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0.8rem;
+    background-color: var(--color-purple);
+    transition: width 0.3s ease-in-out;
+}
+
+.projects-outer a:hover::after {
+    width: 3.5rem;
+}
+
+/* --- 4.4 Services --- */
+
+.services-outer{
+    background-color: var(--color-white);
+}
+
+.services-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+    max-width: 85rem;
+    padding:4rem 0;
+    margin: 0 auto;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.services-wrapper > article{
+    border: 1px solid var(--color-blue);
+    flex-basis: 395px;
+    max-width: 410px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+}
+
+.img-services{
+    width: 5rem;
+}
+
+.services-inner::before {
+    content: "services";
+    font-size: 24rem;
+}
+
+.services-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* --- 4.5 Contact form --- */
+
+.form-outer{
+    background: linear-gradient(90deg,var(--color-blue) 0%, var(--color-purple) 100%);
+}
+
+.services-triangle-bottom {
+    background: linear-gradient(90deg,var(--color-blue) 0%, var(--color-purple) 100%);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-wrapper {
+    width: 100%;
+    align-items: stretch;
+    text-align: left;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0;
+    gap: 0;
+}
+
+form input,
+form textarea{
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+form textarea {
+    height: 15rem;
+}
+
+form > button{
+    background-color: var(--color-pink);
+    align-self: center;
+}
+
+
+/* --- 4.6 Footer --- */
+
+footer{
+    background-color: var(--text-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+/* //////////5. Media Queries////////// */
+
+@media screen and (max-width: 768px) {
+    .nav-menu{
+        width: 100%;
+        justify-content: space-around;
+        gap: 0;
+        padding: 1rem;
+    }
+    .triangle-bottom,
+        .triangle-top {
+        height: 3rem;
+    }
+    .header-img{
+        bottom: -2rem;
+    }
+    .introduction-inner::before,
+    .projects-inner::before,
+    .services-inner::before{
+        top: -2rem;
+    }
+
+    .introduction-inner::before,
+        .projects-inner::before{
+        font-size: 11rem;
+    }
+    .services-inner::before {
+        font-size:6rem;
+    }
+    .projects-wrapper,
+    .projects-wrapper:nth-child(even){
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+    }
+
+    .projects-image-wrapper{
+        flex-basis: auto;
+    }
+    .projects-outer article{
+        max-width: 100%;
+        width: 100%;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .services-wrapper{
+        flex-direction: column;
+        align-items: center;
+    }
+    .services-wrapper > article{
+        text-align: left;
+    }
+}
