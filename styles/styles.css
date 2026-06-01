@@ -32,6 +32,7 @@
     --color-blue: #4845E4;
     --color-pink: #ED4385;
     --color-text: #0C0C0C;
+    --color-white: #FFFFFF;
     --color-floats:#F2F0FF;
     --color-background-projects: #F3F6F9;
     --color-service-tiles: #7A7A7A;
@@ -159,7 +160,17 @@ button{
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
+.triangle-bottom {
+    width: 100%;
+    height: 6rem;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
 
+.triangle-top {
+    width: 100%;
+    height: 6rem;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
 
 /* --- 3.2 Other --- */
 
@@ -200,14 +211,15 @@ header > ul{
 /* --- 4.2 Introduction --- */
 
 .introduction-outer {
-    background-color: var(--color-floats);
+    background-color: var(--color-white);
 }
 
-.intro-triangle {
-    width: 100%;
-    height: 6rem;
+.header-triangle-bottom {
     background: linear-gradient(90deg, var(--color-blue) 0%, var(--color-purple) 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.introduction-triangle-top {
+    background: var(--color-background-projects);
 }
 
 .introduction-wrapper {
@@ -220,7 +232,8 @@ header > ul{
     content: "hello";
     position: absolute;
     font-size: 30rem;
-    color: var(--color-floats);
+    /*color: var(--color-floats);*/
+    color: var(--color-blue);
     left: 50%;
     transform: translateX(-50%);
     opacity: 0.1;
@@ -234,21 +247,32 @@ header > ul{
 
 /* --- 4.3 Projects --- */
 
+
 .projects-outer {
     background-color: var(--color-background-projects);
 }
 
 .projects-inner {
+    flex-direction: column;
+    row-gap: 5rem;
+}
+
+.projects-wrapper{
+    display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    gap: 10%;
+    width: 100%;
+    max-width: 85rem;
+    padding-bottom: 0;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .projects-inner::before {
     content: "work";
     position: absolute;
     font-size: 30rem;
-    color: var(--color-floats);
+    /*color: var(--color-floats);*/
+    color: var(--color-blue);
     left: 50%;
     transform: translateX(-50%);
     top: 0;
@@ -257,12 +281,12 @@ header > ul{
 }
 
 .projects-outer article,
-.projects-outer .image-wrapper {
+.projects-outer .projects-image-wrapper {
     position: relative;
     z-index: 1;
 }
 
-.projects-inner:nth-child(even) {
+.projects-wrapper:nth-child(even) {
     flex-direction: row-reverse;
 }
 
@@ -276,22 +300,26 @@ header > ul{
     flex-shrink: 0;
 }
 
-.image-wrapper img{
+.projects-image-wrapper img{
     width: 100%;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-.image-wrapper {
+.projects-image-wrapper {
     flex-basis: 800px;
     flex-grow: 0;
     flex-shrink: 1;
+}
+
+.projects-triangle-bottom{
+    background: var(--color-background-projects);
 }
 
 
 /* --- 4.4 Services --- */
 
 .services-outer{
-    background-color: var(--color-floats);
+    background-color: var(--color-white);
 }
 
 .services-wrapper{
@@ -326,7 +354,8 @@ header > ul{
     content: "services";
     position: absolute;
     font-size: 30rem;
-    color: var(--color-floats);
+    /*color: var(--color-floats);*/
+    color: var(--color-blue);
     left: 50%;
     transform: translateX(-50%);
     top: 0;
